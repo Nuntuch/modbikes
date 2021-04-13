@@ -39,24 +39,6 @@ public class LoginFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpSession session = ((HttpServletRequest) request).getSession(false);
-//        if (session != null) {
-//            Account accountObj = (Account) session.getAttribute("account");
-//            if (accountObj != null) {
-//                chain.doFilter(request, response);
-//                return;
-//            }
-//            if (accountObj == null) {
-//                filterConfig.getServletContext().getRequestDispatcher("/Login").forward(request, response);
-//                return;
-//            }
-//
-//            if (session == null) {
-//
-//                filterConfig.getServletContext().getRequestDispatcher("/Login").forward(request, response);
-//                chain.doFilter(request, response);
-//                return;
-//            }
-//        }
 
         if(session == null || session.getAttribute("account") == null){
                 filterConfig.getServletContext().getRequestDispatcher("/LoginServlet").forward(request, response);
