@@ -17,7 +17,6 @@ import java.util.logging.Logger;
  *
  * @author Admin
  */
-
 public class CreateTable {
 
     public static void main(String args[]) {
@@ -33,7 +32,7 @@ public class CreateTable {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
                     .getConnection(url,
-                           user, password);
+                            user, password);
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
@@ -51,18 +50,14 @@ public class CreateTable {
             System.exit(0);
         }
         System.out.println("Table created successfully");
-        
-        
-        
-               
+
         try {
             c.close();
         } catch (SQLException ex) {
             Logger.getLogger(ConnectDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         System.out.println("Close database successfully");
-        
-        
+
     }
 }
