@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.modbikes.model;
+package com.mycompany.modbikes.model.example;
 
 /**
  *
  * @author Admin
  */
+import com.mycompany.modbikes.model.example.ConnectDB;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
