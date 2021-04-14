@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.modbikes.model.example;
+package com.mycompany.modbikes.model.initial;
 
+import com.mycompany.modbikes.model.example.*;
 import com.mycompany.modbikes.model.example.ConnectDB;
 import java.sql.Connection;
 import java.sql.DriverManager;
