@@ -8,9 +8,9 @@
  * Created: Apr 14, 2021
  */
 
-DROP TABLE IF EXISTS Location;
-DROP TABLE IF EXISTS Bicycle;
 DROP TABLE IF EXISTS History;
+DROP TABLE IF EXISTS Bicycle;
+DROP TABLE IF EXISTS Location;
 DROP TABLE IF EXISTS Student;
 
 CREATE TABLE Student(
@@ -27,19 +27,6 @@ CREATE TABLE Student(
    PRIMARY KEY(StudentID)
 );
 
-CREATE TABLE History(
-   HistoryID INT NOT NULL,
-   StudentID bigint NOT NULL,
-   BikeID bigint NOT NULL,
-   StartDate timestamp NOT NULL,
-   FinishedDate timestamp NOT NULL,
-   LastLocation VARCHAR(255) NOT NULL,
-   IsReturnBikeOntime boolean NOT NULL,
-   PRIMARY KEY(HistoryID),
-   CONSTRAINT fk_student
-      FOREIGN KEY(StudentID) 
-	  REFERENCES Student(StudentID)
-);
 
 
 
@@ -73,3 +60,19 @@ CREATE TABLE Bicycle(
 
 
 
+CREATE TABLE History(
+   HistoryID INT NOT NULL,
+   StudentID bigint NOT NULL,
+   BikeID bigint NOT NULL,
+   StartDate timestamp NOT NULL,
+   FinishedDate timestamp NOT NULL,
+   LastLocation VARCHAR(255) NOT NULL,
+   IsReturnBikeOntime boolean NOT NULL,
+   PRIMARY KEY(HistoryID),
+   CONSTRAINT fk_student
+      FOREIGN KEY(StudentID) 
+	  REFERENCES Student(StudentID),
+   CONSTRAINT fk_bicycle
+      FOREIGN KEY(BikeID) 
+	  REFERENCES Bicycle(BikeID)
+);
