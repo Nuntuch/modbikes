@@ -22,7 +22,10 @@ import java.util.logging.Logger;
 public class QueryDB {
 
     public static void main(String args[]) {
+        SelectStarFromStudent();
         SelectStarFromLocation();
+        SelectStarFromHistory();
+        SelectStarFromBicycle();
     }
 
     public static void SelectStarFromStudent() {
@@ -73,7 +76,7 @@ public class QueryDB {
             c.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+//            System.exit(0);
         }
         System.out.println("Operation done successfully");
 
@@ -126,7 +129,7 @@ public class QueryDB {
             c.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+//            System.exit(0);
         }
         System.out.println("Operation done successfully");
 
@@ -158,29 +161,24 @@ public class QueryDB {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Student;");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM History;");
             while (rs.next()) {
+                int HistoryID = rs.getInt("HistoryID");
                 long StudentID = rs.getLong("StudentID");
-                String FirstName = rs.getString("FirstName");
-                String LastName = rs.getString("LastName");
-                String Faculty = rs.getString("Faculty");
-                String Department = rs.getString("Department");
-                String Password = rs.getString("Password");
-                boolean IsUseBike = rs.getBoolean("IsUseBike");
-                String TelephoneNo = rs.getString("TelephoneNo");
-                String Email = rs.getString("Email");
-                String OtherContact = rs.getString("OtherContact");
-
+                long BikeID = rs.getLong("BikeID");
+                String StartDate = rs.getString("StartDate");
+                String FinishedDate = rs.getString("FinishedDate");
+                String LastLocation = rs.getString("LastLocation");
+                boolean IsReturnBikeOntime = rs.getBoolean("IsReturnBikeOntime");
+                
+                System.out.println("HistoryID = " + HistoryID);
                 System.out.println("StudentID = " + StudentID);
-                System.out.println("FirstName = " + FirstName);
-                System.out.println("LastName = " + LastName);
-                System.out.println("Faculty = " + Faculty);
-                System.out.println("Department = " + Department);
-                System.out.println("Password = " + Password);
-                System.out.println("IsUseBike = " + IsUseBike);
-                System.out.println("TelephoneNo = " + TelephoneNo);
-                System.out.println("Email = " + Email);
-                System.out.println("OtherContact = " + OtherContact);
+                System.out.println("BikeID = " + BikeID);
+                System.out.println("StartDate = " + StartDate);
+                System.out.println("FinishedDate = " + FinishedDate);
+                System.out.println("LastLocation = " + LastLocation);
+                System.out.println("IsReturnBikeOntime = " + IsReturnBikeOntime);
+
                 System.out.println();
             }
             rs.close();
@@ -188,7 +186,7 @@ public class QueryDB {
             c.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+//            System.exit(0);
         }
         System.out.println("Operation done successfully");
 
@@ -220,29 +218,20 @@ public class QueryDB {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Student;");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Bicycle;");
             while (rs.next()) {
-                long StudentID = rs.getLong("StudentID");
-                String FirstName = rs.getString("FirstName");
-                String LastName = rs.getString("LastName");
-                String Faculty = rs.getString("Faculty");
-                String Department = rs.getString("Department");
-                String Password = rs.getString("Password");
-                boolean IsUseBike = rs.getBoolean("IsUseBike");
-                String TelephoneNo = rs.getString("TelephoneNo");
-                String Email = rs.getString("Email");
-                String OtherContact = rs.getString("OtherContact");
-
-                System.out.println("StudentID = " + StudentID);
-                System.out.println("FirstName = " + FirstName);
-                System.out.println("LastName = " + LastName);
-                System.out.println("Faculty = " + Faculty);
-                System.out.println("Department = " + Department);
-                System.out.println("Password = " + Password);
-                System.out.println("IsUseBike = " + IsUseBike);
-                System.out.println("TelephoneNo = " + TelephoneNo);
-                System.out.println("Email = " + Email);
-                System.out.println("OtherContact = " + OtherContact);
+                int BikeID = rs.getInt("BikeID");
+                int LocationID = rs.getInt("LocationID");
+                boolean IsAvailable = rs.getBoolean("IsAvailable");
+                String Detail = rs.getString("Detail");
+                String BikePicLink = rs.getString("BikePicLink");
+                
+                System.out.println("BikeID = " + BikeID);
+                System.out.println("LocationID = " + LocationID);
+                System.out.println("IsAvailable = " + IsAvailable);
+                System.out.println("Detail = " + Detail);
+                System.out.println("BikePicLink = " + BikePicLink);
+                
                 System.out.println();
             }
             rs.close();
