@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.modbikes.model.initial;
+package com.mycompany.modbikes.model.operation;
 
 /**
  *
@@ -39,18 +39,31 @@ public class QueryDB {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM COMPANY;");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Student;");
             while (rs.next()) {
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                int age = rs.getInt("age");
-                String address = rs.getString("address");
-                float salary = rs.getFloat("salary");
-                System.out.println("ID = " + id);
-                System.out.println("NAME = " + name);
-                System.out.println("AGE = " + age);
-                System.out.println("ADDRESS = " + address);
-                System.out.println("SALARY = " + salary);
+                long StudentID = rs.getLong("StudentID");
+                String FirstName = rs.getString("FirstName");
+                String LastName = rs.getString("LastName");
+                String Faculty = rs.getString("Faculty");
+                String Department = rs.getString("Department");
+                String Password = rs.getString("Password");
+                boolean IsUseBike = rs.getBoolean("IsUseBike");
+                String TelephoneNo = rs.getString("TelephoneNo");
+                String Email = rs.getString("Email");
+                String OtherContact = rs.getString("OtherContact");
+                
+                
+                
+                System.out.println("StudentID = " + StudentID);
+                System.out.println("FirstName = " + FirstName);
+                System.out.println("LastName = " + LastName);
+                System.out.println("Faculty = " + Faculty);
+                System.out.println("Department = " + Department);
+                System.out.println("Password = " + Password);
+                System.out.println("IsUseBike = " + IsUseBike);
+                System.out.println("TelephoneNo = " + TelephoneNo);
+                System.out.println("Email = " + Email);
+                System.out.println("OtherContact = " + OtherContact);
                 System.out.println();
             }
             rs.close();
@@ -71,4 +84,18 @@ public class QueryDB {
         System.out.println("Close database successfully");
 
     }
+    
+    
+    
+    public static void SelectStarFromStudent(){
+    
+    
+    
+    }
+    
+    
+    
+    
+    
+    
 }
