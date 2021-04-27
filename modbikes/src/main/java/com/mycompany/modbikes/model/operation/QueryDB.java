@@ -262,7 +262,7 @@ public class QueryDB {
     
 //    __________________________________________________________________________
     
-        public static boolean CheckUsernameAndPassword(String user_email, String user_password) {
+        public boolean CheckUsernameAndPassword(String user_email, String user_password) {
         boolean is_have_user = false;
 //             url = jdbc:postgresql://<host>:<port>/<dbname>?user=<username>&password=<password>
         String url = "jdbc:postgresql://ec2-3-234-85-177.compute-1.amazonaws.com:5432/der31l0fqg9f6b?user=nkqwwjhlpbldun&password=fd0a974ab729bef38965fe05a1dd9132d0b07dba3e34d598a540120c2cd84231";
